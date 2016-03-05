@@ -70,12 +70,10 @@
       <dd><%= @driver.available_time_sunday.strftime("%I:%M%p") %></dd>
 
       <dt>Wheel chair accessible:</dt>
-      <dd><%= @driver.wheel_chair_accessible %></dd>
-
-
+      <dd><%= @driver.wheel_chair_accessible  ? 'yes' : 'no' %></dd>
 
       <dt>Willing to carpool:</dt>
-      <dd><%= @driver.willing_to_carpool %></dd>
+      <dd><%= @driver.willing_to_carpool ? 'yes' : 'no' %></dd>
 
       <dt>Assistance comfort level:</dt>
       <dd><%= @driver.assistance_comfort_level %></dd>
