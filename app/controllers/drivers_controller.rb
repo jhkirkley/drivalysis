@@ -69,7 +69,7 @@ class DriversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_params
-      params.require(:driver).permit(:name, :email, :phone, :available_monday, :available_tueday,
+      params.require(:driver).permit(:name, :email, :phone, :available_monday, :available_tueday, :neighborhood, :address,
       :available_wednesday, :available_thursday, :available_friday, :available_saturday, :available_sunday,
       :available_time_monday, :available_time_tuesday, :available_time_wednesday, :available_time_thursday,
       :available_time_friday, :available_time_sauterday, :available_time_sunday, :wheel_chair_accessible, :willing_to_carpool, :assistance_comfort_level)
