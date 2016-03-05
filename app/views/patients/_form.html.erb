@@ -1,0 +1,73 @@
+<%= form_for @patient do |f| %>
+  <% if @patient.errors.any? %>
+    <div class="alert alert-danger">
+      <h4> There is <%= pluralize(@patient.errors.count, "error") %>.</h4>
+      <ul>
+        <% @patient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <%= form_group_tag(@patient.errors[:name]) do %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Enter your name" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email%>
+      <%= f.text_field :email, class: 'form-control', placeholder: "Enter your email" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_no %>
+      <%= f.text_field :phone_no, class: 'form-control', placeholder: "Enter your phone number"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :home_address %>
+      <%= f.text_field :home_address, class: 'form-control', placeholder: "Enter your home address"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :facility_address %>
+      <%= f.text_field :facility_address, class: 'form-control', placeholder: "Enter your facility address"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :pickup_time%>
+      <%= f.time_select :pickup_time, {:ampm => true} %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label  :frequency_of_visits %>
+      <br/>
+      <%= f.label :Monday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Monday', checked('Monday'), id: 'days_of_week_Monday' %>
+
+      <%= f.label :Tuesday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Tuesday', checked('Tuesday'), id: 'days_of_week_Tuesday' %>
+
+      <%= f.label :Wednesday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Wednesday', checked('Wednesday'), id: 'days_of_week_Wednesday' %>
+
+      <%= f.label :Thursday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Thursday', checked('Thurday'), id: 'days_of_week_Thursday' %>
+
+      <%= f.label :Friday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Friday', checked('Friday'), id: 'days_of_week_Friday' %>
+
+      <%= f.label :Saturday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Saturday', checked('Saturday'), id: 'days_of_week_Saturday' %>
+
+      <%= f.label :Sunday %>
+      <%= check_box_tag 'patient[days_of_week][]', 'Monday', checked('Sunday'), id: 'days_of_week_Sunday' %>
+
+    </div>
+
+  <% end %>
+
+  <div class="form-group text-center">
+    <br>
+    <%= f.submit "Save", class: 'btn btn-success' %>
+  </div>
+<% end %>

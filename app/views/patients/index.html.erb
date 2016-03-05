@@ -1,0 +1,10 @@
+<h1 class="text-center">Patients List</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <% @patients.each do |patient| %>
+      <ul class="list-unstyled">
+        <li> <%= link_to patient.name, patient %>
+      </ul>
+    <% end %>
+  </div>
+</div>
