@@ -1,0 +1,43 @@
+<div class="page-header">
+  <%= link_to new_driver_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Driver
+  <% end %>
+  <h1>Listing drivers</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Available time</th>
+            <th>Available days</th>
+            <th>Wheel chair accessible</th>
+            <th>Willing to carpool</th>
+            <th>Assistance comfort level</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @drivers) do |driver| %>
+            <td><%= driver.name %></td>
+            <td><%= driver.email %></td>
+            <td><%= driver.phone %></td>
+            <td><%= driver.available_time %></td>
+            <td><%= driver.available_days %></td>
+            <td><%= driver.wheel_chair_accessible %></td>
+            <td><%= driver.willing_to_carpool %></td>
+            <td><%= driver.assistance_comfort_level %></td>
+            <td><%= link_to 'Show', driver %></td>
+        <td><%= link_to 'Edit', edit_driver_path(driver) %></td>
+        <td><%= link_to 'Destroy', driver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

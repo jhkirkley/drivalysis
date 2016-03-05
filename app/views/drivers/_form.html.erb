@@ -1,0 +1,170 @@
+<%= form_for(@driver, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @driver.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@driver.errors.count, "error") %> prohibited this driver from being saved:</h4>
+
+      <ul>
+      <% @driver.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :available_monday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_monday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :available_time_monday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_monday, {:ampm => true} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :available_tuesday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_tuesday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :available_time_tuesday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_tuesday, {:ampm => true, :default => false} %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :available_wednesday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_wednesday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :available_time_wednesday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_wednesday, {:ampm => true} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :available_thursday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_thursday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :avialable_time_thurday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_thursday, {:ampm => true} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :available_friday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_friday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :available_time_friday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_friday, {:ampm => true} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :available_saturday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_saturday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :available_time_sauterday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :available_time_sauterday, {:ampm => true} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :available_sunday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :available_sunday, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :avilable_time_sunday, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+        <%= f.time_select :avilable_time_sunday, {:ampm => true} %>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-group">
+    <%= f.label :neighborhood, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :neighborhood, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :wheel_chair_accessible, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :wheel_chair_accessible, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :willing_to_carpool, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :willing_to_carpool, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :assistance_comfort_level, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+       <%= f.select :assistance_comfort_level, [[1,1],[2,2],[3,3], [4,4],[5,5]] %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
