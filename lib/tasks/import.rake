@@ -9,3 +9,4 @@ CSV.foreach("dclinics.csv") do |row|
  end
 
 end
+end
