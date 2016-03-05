@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20160305203213) do
     t.time     "available_time_sunday",    default: '2000-01-01 00:00:00'
   end
 
-
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
