@@ -28,4 +28,16 @@ ActiveRecord::Schema.define(version: 20160305152116) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_no"
+    t.string   "home_address"
+    t.string   "facility_address"
+    t.time     "pickup_time"
+    t.string   "days_of_week"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
 end
