@@ -18,10 +18,14 @@
       <dd> <%= @patient.facility_address %> </dd>
 
       <dt> Pickup Time: </dt>
-      <dd> <%= @patient.pickup_time %> </dd>
+      <dd> <%= @patient.pickup_time.strftime("%I:%M%p") %> </dd>
+  
 
       <dt> Frequency: </dt>
-      <dd> <%= @patient.days_of_week %> </dd>
+      <dd> <% @patient.days_of_week.split(',').each do |day| %>
+          <%= day.gsub(/(\"|\[|\])/, '').strip %>
+          <% end %>
+      </dd>
     </dl>
     <%= link_to "Edit", edit_patient_path(@patient), class: 'btn btn-success' %>
     <%= link_to "Delete Post", @patient, method: :delete,
