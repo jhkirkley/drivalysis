@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305152116) do
+ActiveRecord::Schema.define(version: 20160305203213) do
+
+  create_table "drivers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "phone"
+    t.time     "available_time"
+    t.string   "available_days"
+    t.string   "neighborhood"
+    t.boolean  "wheel_chair_accessible",   default: true
+    t.boolean  "willing_to_carpool",       default: true
+    t.integer  "assistance_comfort_level"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.boolean  "avilable_monday"
+    t.boolean  "avilable_tuesday"
+    t.boolean  "avilable_wednesday"
+    t.boolean  "avilable_thursday"
+    t.boolean  "avilable_friday"
+    t.boolean  "avilable_saturday"
+    t.boolean  "avilable_sunday"
+    t.time     "avilable_time_monday"
+    t.time     "avilable_time_tuesday"
+    t.time     "avilable_time_wednesday"
+    t.time     "avilable_time_thurday"
+    t.time     "avilable_time_friday"
+    t.time     "avilable_time_sauterday"
+    t.time     "avilable_time_sunday"
+    t.boolean  "available_monday"
+    t.boolean  "available_tuesday"
+    t.boolean  "available_wednesday"
+    t.boolean  "available_thursday"
+    t.boolean  "available_friday"
+    t.boolean  "available_saturday"
+    t.boolean  "available_sunday"
+    t.time     "available_time_monday",    default: '2000-01-01 00:00:00'
+    t.time     "available_time_tuesday",   default: '2000-01-01 00:00:00'
+    t.time     "available_time_wednesday", default: '2000-01-01 00:00:00'
+    t.time     "available_time_thursday",  default: '2000-01-01 00:00:00'
+    t.time     "available_time_friday",    default: '2000-01-01 00:00:00'
+    t.time     "available_time_sauterday", default: '2000-01-01 00:00:00'
+    t.time     "available_time_sunday",    default: '2000-01-01 00:00:00'
+  end
 
   create_table "facilities", force: :cascade do |t|
     t.string   "name"
