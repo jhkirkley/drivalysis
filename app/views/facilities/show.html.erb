@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to facilities_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_facility_path(@facility), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show facility</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @facility.name %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @facility.address %></dd>
+
+  <dt>County:</dt>
+  <dd><%= @facility.county %></dd>
+
+  <dt>City:</dt>
+  <dd><%= @facility.city %></dd>
+
+  <dt>Zip code:</dt>
+  <dd><%= @facility.zip_code %></dd>
+
+  <dt>Beds:</dt>
+  <dd><%= @facility.beds %></dd>
+
+  <dt>Telephone:</dt>
+  <dd><%= @facility.telephone %></dd>
+
+  <dt>Type:</dt>
+  <dd><%= @facility.type %></dd>
+
+</dl>

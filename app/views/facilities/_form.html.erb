@@ -1,0 +1,68 @@
+<%= form_for(@facility, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @facility.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@facility.errors.count, "error") %> prohibited this facility from being saved:</h4>
+
+      <ul>
+      <% @facility.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :county, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :county, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :city, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :zip_code, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :zip_code, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :beds, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :beds, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :telephone, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :telephone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :type, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :type, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
