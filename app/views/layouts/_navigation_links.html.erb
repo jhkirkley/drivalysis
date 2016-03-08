@@ -1,5 +1,12 @@
 <li><%= link_to 'About', '/about' %></li>
 <li><%= link_to 'Map', '/map' %></li>
+<% if patient_signed_in? %>
 <li><%= link_to 'Facilities', facilities_path %></li>
 <li><%= link_to 'Patients', patients_path %></li>
 <li><%= link_to 'Drivers', drivers_path %></li>
+<li><%= link_to('Settings', edit_patient_registration_path) %></li>
+<li><%= link_to('Logout', destroy_patient_session_path, :method => :delete) %> </li>
+<% else %>
+  <li><%= link_to('Sign Up!', new_patient_registration_path)  %></li>
+  <li><%= link_to('Login', new_patient_session_path)  %></li>
+<% end %>
