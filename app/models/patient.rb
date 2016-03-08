@@ -8,4 +8,13 @@ class Patient < ActiveRecord::Base
   validates :pickup_time, presence: true
   validates :days_of_week, presence: true
 
+      # Include default devise modules. Others available
+    # are:
+    # :token_authenticatable, :encryptable,
+    # :confirmable, :lockable, :timeoutable and
+    # :omniauthable
+    devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable,
+    :validatable
+
 end
