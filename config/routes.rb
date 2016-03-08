@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :facilities
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
+  match '/map', to: 'static_pages#map', via: 'get'
   resources :patients
+
+  devise_for :patient
 
 
   # The priority is based upon order of creation: first created -> highest priority.
