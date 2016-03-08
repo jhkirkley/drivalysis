@@ -7,70 +7,77 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show driver</h1>
+  <h1 class="text-center">Show driver</h1>
 </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @driver.name %></dd>
 
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @driver.name %></dd>
+      <dt>Email:</dt>
+      <dd><%= @driver.email %></dd>
 
-  <dt>Email:</dt>
-  <dd><%= @driver.email %></dd>
+      <dt>Phone:</dt>
+      <dd><%= @driver.phone %></dd>
 
-  <dt>Phone:</dt>
-  <dd><%= @driver.phone %></dd>
+      <dt>Address:</dt>
+      <dd><%= @driver.address %></dd>
 
-  <dt>Available Monday:</dt>
-  <dd><%= @driver.available_monday ? 'yes' : 'no' %></dd>
+      <dt>Neighborhood :</dt>
+      <dd><%= @driver.neighborhood %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_monday.strftime("%I:%M%p") %></dd>
+      <dt>Available Monday:</dt>
+      <dd><%= @driver.available_monday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Tueday:</dt>
-  <dd><%= @driver.available_tuesday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_monday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_tuesday.strftime("%I:%M%p") %></dd>
+      <dt>Available Tueday:</dt>
+      <dd><%= @driver.available_tuesday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Wednesday:</dt>
-  <dd><%= @driver.available_wednesday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_tuesday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_wednesday.strftime("%I:%M%p") %></dd>
+      <dt>Available Wednesday:</dt>
+      <dd><%= @driver.available_wednesday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Thursday:</dt>
-  <dd><%= @driver.available_thursday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_wednesday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_thursday.strftime("%I:%M%p") %></dd>
+      <dt>Available Thursday:</dt>
+      <dd><%= @driver.available_thursday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Friday:</dt>
-  <dd><%= @driver.available_friday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_thursday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_friday.strftime("%I:%M%p") %></dd>
+      <dt>Available Friday:</dt>
+      <dd><%= @driver.available_friday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Saturday:</dt>
-  <dd><%= @driver.available_saturday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_friday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_sauterday.strftime("%I:%M%p") %></dd>
+      <dt>Available Saturday:</dt>
+      <dd><%= @driver.available_saturday ? 'yes' : 'no' %></dd>
 
-  <dt>Available Sunday:</dt>
-  <dd><%= @driver.available_sunday ? 'yes' : 'no' %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_sauterday.strftime("%I:%M%p") %></dd>
 
-  <dt>Available time:</dt>
-  <dd><%= @driver.available_time_sunday.strftime("%I:%M%p") %></dd>
+      <dt>Available Sunday:</dt>
+      <dd><%= @driver.available_sunday ? 'yes' : 'no' %></dd>
 
-  <dt>Wheel chair accessible:</dt>
-  <dd><%= @driver.wheel_chair_accessible %></dd>
+      <dt>Available time:</dt>
+      <dd><%= @driver.available_time_sunday.strftime("%I:%M%p") %></dd>
 
+      <dt>Wheel chair accessible:</dt>
+      <dd><%= @driver.wheel_chair_accessible  ? 'yes' : 'no' %></dd>
 
+      <dt>Willing to carpool:</dt>
+      <dd><%= @driver.willing_to_carpool ? 'yes' : 'no' %></dd>
 
-  <dt>Willing to carpool:</dt>
-  <dd><%= @driver.willing_to_carpool %></dd>
+      <dt>Assistance comfort level:</dt>
+      <dd><%= @driver.assistance_comfort_level %></dd>
 
-  <dt>Assistance comfort level:</dt>
-  <dd><%= @driver.assistance_comfort_level %></dd>
-
-</dl>
+    </dl>
+  </div>
+</div>
