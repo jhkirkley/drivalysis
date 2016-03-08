@@ -1,4 +1,11 @@
-<h1 class="text-center">Patients List</h1>
+
+<div class="page-header">
+  <%= link_to new_patient_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Driver
+  <% end %>
+  <h1>Listing patients</h1>
+</div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <% @patients.each do |patient| %>
