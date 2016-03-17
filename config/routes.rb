@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/dashboard'
+
   resources :drivers
   resources :facilities
   root to: 'static_pages#home'
@@ -7,7 +9,6 @@ Rails.application.routes.draw do
   match '/map', to: 'static_pages#map', via: 'get'
   resources :patients
 
-  devise_for :patient
 
 
   # The priority is based upon order of creation: first created -> highest priority.

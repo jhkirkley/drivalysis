@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-before_filter :authenticate_patient!
+
   def index
     @patients = Patient.all
   end
@@ -26,22 +26,23 @@ before_filter :authenticate_patient!
   end
 
 
-  # def edit
-  #   @patient = Patient.find(params[:id])
-  # end
 
-  # def update
-  #   @patient = Patient.find(params[:id])
+   def edit
+     @patient = Patient.find(params[:id])
+   end
 
-  #   if @patient.update_attributes(patient_params)
-  #     flash[:notice] = "Patient information was updated successfully"
-  #     redirect_to patient_path
-  #   else
-  #     flash[:error] = "Sorry, There was some an error when updating a patient information. Please try again."
-  #     render :edit
-  #   end
+   def update
+     @patient = Patient.find(params[:id])
 
-  # end
+     if @patient.update_attributes(patient_params)
+       flash[:notice] = "Patient information was updated successfully"
+       redirect_to patient_path
+     else
+       flash[:error] = "Sorry, There was some an error when updating a patient information. Please try again."
+       render :edit
+     end
+
+   end
 
   def destroy
     @patient = Patient.find(params[:id])
@@ -58,7 +59,7 @@ before_filter :authenticate_patient!
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :email, :phone_no, :home_address, :facility_address, :pickup_time, days_of_week:[])
+    params.require(:patient).permit(:name, :phone_no, :home_address, :facility_address, :pickup_time, days_of_week:[])
   end
 
 end
