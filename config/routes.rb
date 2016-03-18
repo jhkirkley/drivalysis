@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 
   resources :drivers
   resources :facilities
+  resources :patients
   root to: 'static_pages#home'
   match '/about', to: 'static_pages#about', via: 'get'
   match '/map', to: 'static_pages#map', via: 'get'
-  resources :patients
+  match '/signup', to: 'static_pages#sign_up', via: 'get'
 
 
 
