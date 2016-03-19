@@ -1,6 +1,11 @@
 class DriversController < ApplicationController
    before_action :authenticate_user!, :except => [:new, :create]
    before_action :set_driver, only: [:destroy]
+   #before_filter :validate_user, :except => [:new, :create]
+
+  def validate_user
+    redirect_to '/signup' unless current_user.meta_id.to_s == params[:id].to_s or current_user.admin == true
+  end
   # GET /drivers
   # GET /drivers.json
   def index

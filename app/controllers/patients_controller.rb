@@ -1,6 +1,11 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!, :except => [:new, :create]
   before_action :set_patient, only: [:destroy]
+  before_filter :validate_user, :only => [:show, :edit]
+
+  def validate_user
+    redirect_to '/signup' unless current_user.meta_id.to_s == params[:id].to_s or current_user.admin == true
+  end
   def index
     @patients = Patient.all
   end
@@ -19,7 +24,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     if @patient.save
-      @user = User.find_by_email(driver_params[:user_attributes][:email])
+      @user = User.find_by_email(patient_params[:user_attributes][:email])
         sign_in(@user)
       flash[:notice] = "Patient was created successfully"
        redirect_to @patient
