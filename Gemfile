@@ -11,6 +11,7 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'cancan'
 
 
 group :development, :test do

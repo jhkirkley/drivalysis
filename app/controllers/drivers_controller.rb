@@ -1,6 +1,6 @@
 class DriversController < ApplicationController
-  before_action :set_driver, only: [:show, :edit, :update, :destroy]
-
+   before_action :authenticate_user!, :except => [:new, :create]
+   before_action :set_driver, only: [:destroy]
   # GET /drivers
   # GET /drivers.json
   def index
@@ -10,6 +10,8 @@ class DriversController < ApplicationController
   # GET /drivers/1
   # GET /drivers/1.json
   def show
+    @driver = Driver.find(params[:id])
+
   end
 
   # GET /drivers/new
@@ -19,15 +21,18 @@ class DriversController < ApplicationController
 
   # GET /drivers/1/edit
   def edit
+    @driver = Driver.find(params[:id])
   end
 
   # POST /drivers
   # POST /drivers.json
   def create
     @driver = Driver.new(driver_params)
-
+    @user = {}
     respond_to do |format|
       if @driver.save
+        @user = User.find_by_email(driver_params[:user_attributes][:email])
+        sign_in(@user)
         format.html { redirect_to @driver, notice: 'Driver was successfully created.' }
         format.json { render :show, status: :created, location: @driver }
       else
@@ -69,9 +74,7 @@ class DriversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_params
-      params.require(:driver).permit(:name, :email, :phone, :available_monday, :available_tueday, :neighborhood, :address,
-      :available_wednesday, :available_thursday, :available_friday, :available_saturday, :available_sunday,
-      :available_time_monday, :available_time_tuesday, :available_time_wednesday, :available_time_thursday,
-      :available_time_friday, :available_time_sauterday, :available_time_sunday, :wheel_chair_accessible, :willing_to_carpool, :assistance_comfort_level)
+      params.require(:driver).permit(:name, :phone, :available_monday, :available_tueday, :neighborhood, :address,:available_wednesday, :available_thursday, :available_friday, :available_saturday, :available_sunday,:available_time_monday, :available_time_tuesday, :available_time_wednesday, :available_time_thursday,:available_time_friday, :available_time_sauterday, :available_time_sunday, :wheel_chair_accessible, :willing_to_carpool, :assistance_comfort_level, user_attributes: [:id, :email, :password ])
+     #params.require(:driver).permit!
     end
 end

@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
-
+  before_action :authenticate_user!, :except => [:new, :create]
+  before_action :set_patient, only: [:destroy]
   def index
     @patients = Patient.all
   end
@@ -11,12 +12,15 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    @user = {}
   end
 
   def create
     @patient = Patient.new(patient_params)
 
     if @patient.save
+      @user = User.find_by_email(driver_params[:user_attributes][:email])
+        sign_in(@user)
       flash[:notice] = "Patient was created successfully"
        redirect_to @patient
     else
@@ -59,7 +63,8 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :email, :password, :phone_no, :home_address, :facility_address, :pickup_time, days_of_week:[])
+   params.require(:patient).permit(:name, :phone_no, :home_address, :facility_address, :pickup_time, days_of_week:[], user_attributes: [:id, :email, :password ])
+ #params.require(:patient).permit!
   end
 
 end
